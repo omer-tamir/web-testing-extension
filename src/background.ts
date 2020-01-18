@@ -6,6 +6,5 @@ chrome.runtime.onInstalled.addListener(() => {
         chrome.tabs.query({ active: true, currentWindow: true }, ([{ id }]) => {
             chrome.pageAction.show(id);
         });
-    },
-        { url: [{ urlContains: 'extensions' }] });
+    });
 });

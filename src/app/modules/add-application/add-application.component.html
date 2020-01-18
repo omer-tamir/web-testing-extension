@@ -1,0 +1,30 @@
+<div class="container">
+    <form novalidate method="post" #submitOrderForm="ngForm">
+
+        <div class="col-xl-4">
+            <div class="card card-body">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="text" required id="fullNameId" placeholder="application name"
+                            #nameVar="ngModel" [(ngModel)]="fullName" name="fullName"
+                            [ngClass]="{'is-invalid': (nameVar.touched || nameVar.dirty) &&!nameVar.valid }" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <span class="asterix ml-1">*</span>
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="email" email required id="emailId"
+                            placeholder="Enter your email" #emailVar="ngModel" minlength="3" [(ngModel)]="email"
+                            name="email"
+                            [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) &&!emailVar.valid }" />
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="float-right"><button class="btn-sm btn-primary mt-1">Add</button></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

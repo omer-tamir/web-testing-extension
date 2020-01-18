@@ -1,10 +1,10 @@
-import { HomeComponent } from './modules/home/home.component';
+import { AddApplicationComponent } from './modules/add-application/add-application.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: 'add', component: AddApplicationComponent },
 ];
 
 @NgModule({
