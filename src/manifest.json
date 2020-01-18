@@ -1,0 +1,13 @@
+{
+  "name": "Web Testing",
+  "version": "1.0",
+  "description": "Build an Extension with Angular",
+  "manifest_version": 2,
+  "permissions": ["activeTab", "webNavigation", "storage"],
+  "background": {
+    "scripts": ["background.js", "runtime.js"]
+  },
+  "page_action": {
+    "default_popup": "index.html"
+  }
+}
