@@ -1,6 +1,6 @@
 import { InputType } from './InputType';
 
-export class LoginParams {  
+export class LoginParams {
   inputType: InputType;
   controllerNameOrId: string;
   controllerValue: string;
