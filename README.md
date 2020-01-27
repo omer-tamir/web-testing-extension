@@ -8,7 +8,7 @@ This browser extension was written to assist developers while testing different 
 
 1. `git clone https://github.com/omermina/web-testing-extension.git`
 
-2. `nmp install`
+2. `npm install`
 
 3. `ng build`
 
