@@ -4,6 +4,10 @@ This browser extension was written to assist developers while testing different 
 
 ![Screen Shots 1](https://github.com/omermina/web-testing-extension/blob/master/screenshots/Apllication%20login%20with%20pre%20set%20parameters.png)
 
+### Getting started
+
+`PM> git clone https://github.com/omermina/web-testing-extension.git`
+
 ### Setting up
 
 1. Create an application using the + sign at the top.
