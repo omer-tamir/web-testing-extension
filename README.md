@@ -11,6 +11,7 @@ This browser extension was written to assist developers while testing different 
 2.  `nmp install`
 
 3.  `ng build`
+The build will create the add-on in the dist folder, next step would be changing going to manage extensions and change that into developer mode and use the Load Unpack from the dist folder.
 
 ### Setting up
 
