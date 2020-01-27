@@ -12,9 +12,9 @@ This browser extension was written to assist developers while testing different 
 
 3. `ng build`
 
-The build will create the add-on in the dist folder, next step would be changing going to manage extensions and change that into developer mode and use the Load Unpack from the dist folder.
+The build will create the add-on in the dist folder, next step would be going to manage extensions and change to developer mode and use the Load Unpack from the dist folder.
 
-### Setting up
+### Setting up a new test application
 
 1. Create an application using the + sign at the top.
 2. Add as many logins as per use cases you need.
