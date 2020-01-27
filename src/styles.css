@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Sailec';
+  src: url('./assets/fonts/Sailec-Bold.eot') format('embedded-opentype'),
+    url('./assets/fonts/Sailec-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sailec';
+  src: url('./assets/fonts/Sailec-Medium.eot') format('embedded-opentype'),
+    url('./assets/fonts/Sailec-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sailec';
+  src: url('./assets/fonts/Sailec-Regular.eot') format('embedded-opentype'),
+    url('./assets//fonts/Sailec-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  width: 500px;
+  height: 250px;
+  font-size: 12px;
+  font-family: Sailec, sans-serif;
+  background-color: #f1f2f4;
+}
+.card {
+  border-radius: 2px;
+  background-color: #fff;
+  border: none;
+}
+
+.card .card-body {
+  padding: 10px;
+}
+.text-link,
+.text-link:hover,
+.text-link:focus {
+  font-weight: 500;
+  text-decoration: none;
+}
+
+input:focus,
+a:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+input:focus {
+  border-color: #bdbdbd !important;
+}
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+.form-control-sm {
+  font-size: 10px;
+}
+.input-group .input-group-text {
+  border: none;
+  font-size: 10px;
+  background-color: #f1f2f4;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-left: 1px solid #e0e0e0;
+}
+
+.text-white {
+  color: #fff !important;
+  font-size: small;
+  font-weight: 300;
+}
+.btn-group-sm > .btn,
+.btn-sm {
+  padding: 0.25rem;
+  font-size: 10px;
+  line-height: 1.25;
+  border-radius: 0.2rem;
+  font-weight: 300;
+}
+.btn-outline-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  background-color: #dc3545;
+  color: #fff;
+}

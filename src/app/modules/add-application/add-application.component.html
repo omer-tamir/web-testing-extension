@@ -1,0 +1,40 @@
+<div class="container">
+    <form novalidate method="post" #submitOrderForm="ngForm">
+
+        <div class="card card-body">
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control form-control-sm" type="text" id="application.name"
+                        placeholder="Application name" #nameVar="ngModel" [(ngModel)]="application.name"
+                        name="application.name" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control form-control-sm" type="text" id="application.devUrl"
+                        placeholder="Development Url" #nameVar="ngModel" [(ngModel)]="application.devUrl"
+                        name="application.devUrl" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control form-control-sm" type="text" id="application.testUrl"
+                        placeholder="Test Url" #nameVar="ngModel" [(ngModel)]="application.testUrl"
+                        name="application.testUrl" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input class="form-control form-control-sm" type="text" id="application.prodUrl"
+                        placeholder="Production Url" #nameVar="ngModel" [(ngModel)]="application.prodUrl"
+                        name="application.prodUrl" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="float-right"><button class="btn-sm btn-primary mt-1" (click)="add()">Add</button></div>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,36 @@
+<div class="card card-header">
+    <div class="card-header-pills">
+        <span *ngFor="let param of applicationLogin.loginParams" class="badge badge-pill badge-info mr-1">
+            <a href=" #no" (click)="setParams(param)" class="text-white"> {{param.controllerNameOrId}}
+                <i class="fas fa-times-circle" (click)="removeParam(param)"></i>
+            </a>
+        </span>
+    </div>
+
+
+</div>
+
+<div class="form-row mb-1">
+    <div class="col-4">
+        <select id="application.inputType" [(ngModel)]="loginParams.inputType">
+            <option *ngFor="let type of keys(inputTypes)" [ngValue]="inputTypes[type]">{{type}}</option>
+        </select>
+    </div>
+
+    <div class="col">
+        <button class=" btn-sm btn-outline-primary" (click)="addParam()">Add Value</button>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="col-4">
+        <input class="form-control form-control-sm" type="text" id="application.controllerNameOrId"
+            placeholder="Controller Name Or Id" #nameVar="ngModel" [(ngModel)]="loginParams.controllerNameOrId"
+            name="applicationUser.controllerNameOrId" />
+    </div>
+    <div class="col">
+        <input class="form-control form-control-sm" type="text" id="application.controllerValue"
+            placeholder="Controller Value" #nameVar="ngModel" [(ngModel)]="loginParams.controllerValue"
+            name="applicationUser.controllerValue" />
+    </div>
+</div>
