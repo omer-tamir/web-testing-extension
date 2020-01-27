@@ -6,10 +6,11 @@ This browser extension was written to assist developers while testing different 
 
 ### Getting started
 
-`git clone https://github.com/omermina/web-testing-extension.git`
+1. `git clone https://github.com/omermina/web-testing-extension.git`
 
-`nmp install`
-`ng build`
+2.  `nmp install`
+
+3.  `ng build`
 
 ### Setting up
 
