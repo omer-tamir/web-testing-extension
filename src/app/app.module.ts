@@ -9,6 +9,7 @@ import { AddApplicationComponent } from './modules/add-application/add-applicati
 import { AddLoginParamsComponent } from './modules/login-params/add-login-params.component';
 import { ApplicationsListComponent } from './modules/applications-list/applications-list.component';
 import { AddLoginComponent } from './modules/login/add-login.component';
+import { LoginsListComponent } from './modules/logins-list/logins-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddLoginComponent } from './modules/login/add-login.component';
     AddApplicationComponent,
     ApplicationsListComponent,
     AddLoginParamsComponent,
-    AddLoginComponent
+    AddLoginComponent,
+    LoginsListComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
