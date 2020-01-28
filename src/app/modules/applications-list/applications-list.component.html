@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-2">
             <div *ngFor="let app of applicationList">
-                <a href="#no" (click)="setRighPanel(app)" class="text-link"> {{app.name}} </a>
+                <a (click)="setRighPanel(app)" class="text-link"> {{app.name}} </a>
             </div>
         </div>
 
@@ -13,29 +13,25 @@
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="name-item">
-                    <a class="nav-link active" id="params-tab" data-toggle="tab" href="#logins" role="tab"
+                    <a class="nav-link active" id="apps-tab" data-toggle="tab" href="#apps" role="tab"
+                        aria-controls="apps" aria-selected="false"> <i class="fas fa-cog"></i>
+                        Application</a>
+                </li>
+
+                <li class="name-item">
+                    <a class="nav-link " id="params-tab" data-toggle="tab" href="#logins" role="tab"
                         aria-controls="logins" aria-selected="true">
                         <i class="fas fa-user-friends"></i>
                         Logins</a>
                 </li>
 
-                <li class="name-item">
-                    <a class="nav-link " id="apps-tab" data-toggle="tab" href="#apps" role="tab" aria-controls="apps"
-                        aria-selected="false"> <i class="fas fa-cog"></i>
-                        Application</a>
-                </li>
+
             </ul>
 
             <div id="myTabContent" class="tab-content full-width">
 
-                <!-- logins tab -->
-                <div class="tab-pane fade show active full-width" id="logins" role="tabpanel"
-                    aria-labelledby="logins-tab">
-                    <app-add-login [application]="this.rightPanelApplication"
-                        (applicationChanged)="onApplicationChanged($event)"></app-add-login>
-                </div>
                 <!-- Applications tab -->
-                <div class="tab-pane fade full-width" id="apps" role="tabpanel" aria-labelledby="apps-tab">
+                <div class="tab-pane fade show active full-width" id="apps" role="tabpanel" aria-labelledby="apps-tab">
                     <div class="card card-body">
                         <div class="form-group">
                             <div class="input-group mb-2">
@@ -88,6 +84,13 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- logins tab -->
+                <div class="tab-pane fade full-width" id="logins" role="tabpanel" aria-labelledby="logins-tab">
+                    <app-add-login [application]="this.rightPanelApplication"
+                        (applicationChanged)="onApplicationChanged($event)"></app-add-login>
+                </div>
+
 
             </div>
 

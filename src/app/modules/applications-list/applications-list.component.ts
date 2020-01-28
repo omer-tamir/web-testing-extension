@@ -44,7 +44,10 @@ export class ApplicationsListComponent implements OnInit {
   }
 
   goToUrl(goTourl: string) {
-    this.dataService.setDefaultUrl(goTourl);
+    this.dataService.setDefaultApp({
+      id: this.rightPanelApplication.id,
+      defaultUrl: goTourl
+    });
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
       chrome.tabs.update(tabs[0].id, { url: goTourl });
     });

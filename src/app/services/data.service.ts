@@ -4,6 +4,7 @@ import { Application } from '../models/application';
 import { LoggerService } from './logger.service';
 import { LoginParams } from '../models/loginParams';
 import { InputType } from '../models/InputType';
+import { DefaultApp } from '../models/defaultApp';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,55 @@ export class DataService {
 
     return applications;
   }
+
+  getApplicationsLogiginsForDefaultApp(): Array<ApplicationLogin> {
+    const applications = this.getAllApplications();
+    const defaultAppId = this.getDefaultUrl().id;
+    const applicationLogins: Array<ApplicationLogin> = [];
+    applications.forEach(application => {
+      application.applicationLogin.forEach(login => {
+        if (defaultAppId === application.id) {
+          applicationLogins.push(login);
+        }
+      });
+    });
+    return applicationLogins;
+  }
+
+  deleteApplication(id: number) {
+    const applications = this.getAllApplications();
+    for (let i = 0; i < applications.length; i++) {
+      if (applications[i].id === id) {
+        applications.splice(i, 1);
+        break;
+      }
+    }
+    this.saveApplications(applications);
+  }
+
+  updateApplication(application: Application) {
+    const applications = this.getAllApplications();
+    for (let i = 0; i < applications.length; i++) {
+      if (applications[i].id === application.id) {
+        applications[i] = application;
+        break;
+      }
+    }
+    this.saveApplications(applications);
+  }
+
+  saveApplications(applications: Application[]) {
+    localStorage.setItem('applications', JSON.stringify(applications));
+  }
+
+  setDefaultApp(defaultApp: DefaultApp) {
+    localStorage.setItem('defaultApp', JSON.stringify(defaultApp));
+  }
+
+  getDefaultUrl(): DefaultApp {
+    return JSON.parse(localStorage.getItem('defaultApp')) || [];
+  }
+
   SeedSampleApplication(): Application[] {
     const applications = [];
 
@@ -53,41 +103,7 @@ export class DataService {
     applications.push(application);
 
     this.saveApplications(applications);
-    this.setDefaultUrl('https://github.com/');
+    this.setDefaultApp({ id: 0, defaultUrl: 'https://github.com/' });
     return applications;
-  }
-
-  deleteApplication(id: number) {
-    const applications = this.getAllApplications();
-    for (let i = 0; i < applications.length; i++) {
-      if (applications[i].id === id) {
-        applications.splice(i, 1);
-        break;
-      }
-    }
-    this.saveApplications(applications);
-  }
-
-  updateApplication(application: Application) {
-    const applications = this.getAllApplications();
-    for (let i = 0; i < applications.length; i++) {
-      if (applications[i].id === application.id) {
-        applications[i] = application;
-        break;
-      }
-    }
-    this.saveApplications(applications);
-  }
-
-  saveApplications(applications: Application[]) {
-    localStorage.setItem('applications', JSON.stringify(applications));
-  }
-
-  setDefaultUrl(url: string) {
-    localStorage.setItem('defaultUrl', url);
-  }
-
-  getDefaultUrl(): string {
-    return localStorage.getItem('defaultUrl');
   }
 }

@@ -27,7 +27,7 @@ export class LoginService {
       return;
     }
 
-    const defaultUrl = this.dataService.getDefaultUrl();
+    const defaultUrl = this.dataService.getDefaultUrl().defaultUrl;
     const url = defaultUrl + urlFrement.controllerValue;
 
     chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
