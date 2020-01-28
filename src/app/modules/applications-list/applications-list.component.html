@@ -31,7 +31,8 @@
                 <!-- logins tab -->
                 <div class="tab-pane fade show active full-width" id="logins" role="tabpanel"
                     aria-labelledby="logins-tab">
-                    <app-add-login [application]="this.rightPanelApplication"></app-add-login>
+                    <app-add-login [application]="this.rightPanelApplication"
+                        (applicationChanged)="onApplicationChanged($event)"></app-add-login>
                 </div>
                 <!-- Applications tab -->
                 <div class="tab-pane fade full-width" id="apps" role="tabpanel" aria-labelledby="apps-tab">

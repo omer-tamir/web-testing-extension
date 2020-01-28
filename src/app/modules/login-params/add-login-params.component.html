@@ -1,7 +1,7 @@
-<div class="card card-header">
+<div class="card bg-light card-header">
     <div class="card-header-pills">
         <span *ngFor="let param of applicationLogin.loginParams" class="badge badge-pill badge-info mr-1">
-            <a href="#no" (click)="setParams(param)" class="text-white"> {{param.controllerNameOrId}}
+            <a (click)="setParams(param)" class="text-white"> {{param.controllerNameOrId}}
                 <i class="fas fa-times-circle" (click)="removeParam(param)"></i>
             </a>
         </span>

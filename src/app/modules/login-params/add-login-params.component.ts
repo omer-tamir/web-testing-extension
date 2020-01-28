@@ -1,4 +1,10 @@
-import { Component, OnChanges, Input } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  Input,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { LoginParams } from '../../models/loginParams';
 import { InputType } from 'src/app/models/InputType';
@@ -10,6 +16,7 @@ import { ApplicationLogin } from 'src/app/models/applicationLogin';
 })
 export class AddLoginParamsComponent implements OnChanges {
   @Input() applicationLogin: ApplicationLogin;
+  @Output() applicationChanged: EventEmitter<any> = new EventEmitter();
   loginParams: LoginParams;
   keys = Object.keys;
   inputTypes = InputType;
@@ -23,10 +30,9 @@ export class AddLoginParamsComponent implements OnChanges {
   }
 
   addParam() {
-    console.log(this.applicationLogin);
     this.applicationLogin.loginParams.push(this.loginParams);
     this.loginParams = new LoginParams();
-    // this.dataService.updateApplication(this.application);
+    this.applicationChanged.emit();
   }
 
   setParams(loginParams: LoginParams) {
@@ -43,5 +49,6 @@ export class AddLoginParamsComponent implements OnChanges {
         break;
       }
     }
+    this.applicationChanged.emit();
   }
 }

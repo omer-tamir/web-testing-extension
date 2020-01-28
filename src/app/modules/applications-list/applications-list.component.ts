@@ -10,6 +10,11 @@ import { DataService } from './../../services/data.service';
 export class ApplicationsListComponent implements OnInit {
   applicationList: Application[];
   rightPanelApplication: Application;
+
+  onApplicationChanged($event): void {
+    this.dataService.updateApplication(this.rightPanelApplication);
+    console.log('changes save', $event);
+  }
   constructor(private router: Router, private dataService: DataService) {}
 
   ngOnInit() {

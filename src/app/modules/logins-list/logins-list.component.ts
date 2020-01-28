@@ -21,12 +21,8 @@ export class LoginsListComponent implements OnInit {
     const applications = this.dataService.getAllApplications();
     applications.forEach(application => {
       application.applicationLogin.forEach(login => {
-        console.log(login);
         this.applicationLogins.push(login);
       });
-      // for (const login of application.applicationLogin) {
-      //   console.log(login);
-      // }
     });
   }
 

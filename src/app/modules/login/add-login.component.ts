@@ -1,10 +1,7 @@
-import { LoginParams } from './../../models/loginParams';
 import { ApplicationLogin } from '../../models/applicationLogin';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Application } from 'src/app/models/application';
-import { InputType } from 'src/app/models/InputType';
-import { log } from 'util';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -13,6 +10,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class AddLoginComponent {
   @Input() application: Application;
+  @Output() applicationChanged: EventEmitter<any> = new EventEmitter();
   applicationLogin: ApplicationLogin;
 
   constructor(
@@ -22,9 +20,14 @@ export class AddLoginComponent {
     this.applicationLogin = new ApplicationLogin();
   }
 
+  onApplicationChanged($event): void {
+    this.applicationChanged.emit();
+  }
+
   add() {
     this.application.applicationLogin.push(this.applicationLogin);
     this.dataService.updateApplication(this.application);
+    this.applicationChanged.emit();
     this.applicationLogin = new ApplicationLogin();
   }
 
@@ -35,6 +38,7 @@ export class AddLoginComponent {
         break;
       }
     }
+    this.applicationChanged.emit();
   }
 
   setParams(login: ApplicationLogin) {

@@ -15,6 +15,8 @@
             </span>
         </div>
     </div>
+</div>
+<div class="card bg-light">
     <div class="card-body">
         <div class="form-group">
             <div class="input-group">
@@ -26,7 +28,8 @@
             </div>
         </div>
         <div class="form-group">
-            <app-login-params [applicationLogin]="this.applicationLogin"></app-login-params>
+            <app-login-params (applicationChanged)="onApplicationChanged($event)"
+                [applicationLogin]="this.applicationLogin"></app-login-params>
         </div>
     </div>
 </div>

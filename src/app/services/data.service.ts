@@ -9,20 +9,19 @@ import { InputType } from '../models/InputType';
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private loggerService: LoggerService) { }
+  constructor(private loggerService: LoggerService) {}
 
   getAllApplications(): Application[] {
     let applications = JSON.parse(localStorage.getItem('applications')) || [];
-    this.loggerService.log(applications.length);
+
     if (applications.length === 0) {
       applications = this.SeedSampleApplication();
     }
-    this.loggerService.log(applications);
 
     return applications;
   }
   SeedSampleApplication(): Application[] {
-    const applications = []
+    const applications = [];
 
     const application = new Application();
     application.id = 0;
@@ -49,7 +48,6 @@ export class DataService {
     loginParamPassword.controllerValue = 'password';
     loginParamPassword.inputType = InputType.Name;
 
-
     login.loginParams.push(loginParamUser, loginParamPassword, urlParameter);
     application.applicationLogin.push(login);
     applications.push(application);
@@ -57,7 +55,6 @@ export class DataService {
     this.saveApplications(applications);
     this.setDefaultUrl('https://github.com/');
     return applications;
-
   }
 
   deleteApplication(id: number) {
