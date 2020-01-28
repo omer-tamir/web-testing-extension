@@ -3,10 +3,10 @@
         <div class="card-header-pills">
             <span *ngFor="let login of applicationLogins" class="p-1 ml-1 ">
                 <a (click)="setForm(login)" class="text-white badge badge-pill badge-primary" data-toggle="tooltip"
-                    data-placement="right" title="Click to set and update parameters">
+                    data-placement="right">
                     {{login.useCase}}
-                    <i class="fas fa-calendar-check" (click)="setForm(login)" data-toggle="tooltip"
-                        data-placement="right" title="Remove login"></i>
+                    <i class="fas fa-fill" (click)="setForm(login)" data-toggle="tooltip" data-placement="right"
+                        title="Fill form"></i>
                 </a>
             </span>
         </div>

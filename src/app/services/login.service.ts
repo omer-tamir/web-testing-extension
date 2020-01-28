@@ -24,6 +24,7 @@ export class LoginService {
       x => x.inputType === InputType.UrlFregment
     );
     if (urlFrement == null) {
+      this.setFormValues(login);
       return;
     }
 

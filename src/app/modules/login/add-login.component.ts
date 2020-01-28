@@ -31,6 +31,13 @@ export class AddLoginComponent {
     this.applicationLogin = new ApplicationLogin();
   }
 
+  copyLogin(login: ApplicationLogin) {
+    this.applicationLogin = {
+      useCase: `copy of ${login.useCase}`,
+      loginParams: login.loginParams
+    };
+  }
+
   remove(login: ApplicationLogin) {
     for (let i = 0; i < this.application.applicationLogin.length; i++) {
       if (this.application.applicationLogin[i].useCase === login.useCase) {
