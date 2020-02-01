@@ -2,18 +2,19 @@
     <div class="card card-header">
         <div class="card-header-pills">
             <span *ngFor="let login of application.applicationLogin" class="p-1">
-                <a class="text-white badge badge-pill badge-primary" data-toggle="tooltip" data-placement="right"
-                    style="cursor:default;">
+                <a class="text-white badge badge-pill badge-primary no-radius-right" data-toggle="tooltip"
+                    data-placement="right" style="cursor:default;" (click)="setParams(login)">
                     {{login.useCase}}
-                    <i class="fas fa-edit mr-1 ml-1" (click)="setParams(login)" data-toggle="tooltip"
-                        data-placement="right" title="Edit" style="cursor:pointer"></i>
-                    <i class="fas fa-times-circle mr-1" (click)="remove(login)" data-toggle="tooltip"
-                        data-placement="right" title="Remove login" style="cursor:pointer"></i>
-                    <i class="fas fa-copy mr-1" (click)="copyLogin(login)" data-toggle="tooltip" data-placement="right"
-                        title="Copy login" style="cursor:pointer"></i>
+                    <i class="fas fa-times-circle ml-1" (click)="remove(login)" data-toggle="tooltip"
+                        data-placement="right" title="Delete" style="cursor:pointer"></i>
                 </a>
-                <a (click)="setForm(login)" data-toggle="tooltip" data-placement="right" title="Fill Form">
-                    <i class="fas fa-fill ml-1" style="font-size: 16px; color:purple;"></i>
+                <a class=" text-white badge badge-pill grey-pill no-radius-left">
+                    <i class="fas fa-copy mr-1" (click)="copyLogin(login)" data-toggle="tooltip" data-placement="right"
+                        title="Copy" style="cursor:pointer"></i>
+
+                    <i (click)=" setForm(login)" data-toggle="tooltip" data-placement="right" title="Fill Form">
+                        <i class="fas fa-fill t pr-1" style="cursor:pointer"></i>
+                    </i>
                 </a>
             </span>
         </div>
