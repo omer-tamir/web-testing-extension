@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="col-9"></div>
-        <div class="col-1 p-1">
-            <a class="nav-link text-dark p-0" [routerLink]="['manage']" data-toggle="tooltip" data-placement="right"
-                title="Show Applications List">
+        <div class="col-1 p-1" *ngIf="isExpended">
+            <a class="nav-link text-dark p-0" (click)="collapse()" [routerLink]="['manage']" data-toggle="tooltip"
+                data-placement="right" title="Show Applications List">
                 <i class="fas fa-sort-amount-down-alt" style="font-size: 20px; color: Dodgerblue;"></i>
             </a>
         </div>
-        <div class="col-1 p-1">
-            <a class="nav-link text-dark p-0" [routerLink]="['']" data-toggle="tooltip" data-placement="right"
-                title="Compact list">
+        <div class="col-1 p-1" *ngIf="!isExpended">
+            <a class="nav-link text-dark p-0" (click)="expand()" [routerLink]="['']" data-toggle="tooltip"
+                data-placement="right" title="Compact list">
                 <i class="fas fa-sort-amount-up-alt" style="font-size: 20px; color: Dodgerblue;"></i>
             </a>
         </div>
