@@ -1,0 +1,16 @@
+{
+  "Applications": [
+    {
+      "id": 1,
+      "name": "pepper",
+      "devUrl": "https://localhost:44320/",
+      "testUrl": "https://a000468-test.azurewebsites.net/",
+      "prodUrl": "https://godigital.loanservicenet.com.au/"
+    },
+    {
+      "id": 5,
+      "name": "CSC",
+      "devUrl": "https://localhost:44390/"
+    }
+  ]
+}

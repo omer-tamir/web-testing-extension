@@ -18,8 +18,8 @@ export class LoginsListComponent implements OnInit {
     private loginService: LoginService
   ) {}
 
-  ngOnInit() {
-    this.applicationLogins = this.dataService.getApplicationsLogiginsForDefaultApp();
+  async ngOnInit() {
+    this.applicationLogins = await this.dataService.getApplicationsLogiginsForDefaultApp();
   }
 
   setForm(login: ApplicationLogin) {

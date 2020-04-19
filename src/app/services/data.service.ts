@@ -10,20 +10,27 @@ import { DefaultApp } from '../models/defaultApp';
   providedIn: 'root'
 })
 export class DataService {
-  constructor(private loggerService: LoggerService) {}
+  constructor(private loggerService: LoggerService) { }
 
-  getAllApplications(): Application[] {
-    let applications = JSON.parse(localStorage.getItem('applications')) || [];
+  async fetchData(): Promise<Application[]> {
+    const url = chrome.runtime.getURL('assets/data.json');
 
-    if (applications.length === 0) {
-      applications = this.SeedSampleApplication();
-    }
-
+    const response = await fetch(url);
+    const applications = response.json();
     return applications;
   }
 
-  getApplicationsLogiginsForDefaultApp(): Array<ApplicationLogin> {
-    const applications = this.getAllApplications();
+  async getAllApplications(): Promise<Application[]> {
+
+    let applications = await this.fetchData() || [];
+    if (applications.length === 0) {
+      applications = this.SeedSampleApplication();
+    }
+    return applications;
+  }
+
+  async getApplicationsLogiginsForDefaultApp(): Promise<Array<ApplicationLogin>> {
+    const applications = await this.getAllApplications();
     const defaultAppId = this.getDefaultUrl().id;
     const applicationLogins: Array<ApplicationLogin> = [];
     applications.forEach(application => {
@@ -36,8 +43,8 @@ export class DataService {
     return applicationLogins;
   }
 
-  deleteApplication(id: number) {
-    const applications = this.getAllApplications();
+  async deleteApplication(id: number) {
+    const applications = await this.getAllApplications();
     for (let i = 0; i < applications.length; i++) {
       if (applications[i].id === id) {
         applications.splice(i, 1);
@@ -47,8 +54,8 @@ export class DataService {
     this.saveApplications(applications);
   }
 
-  updateApplication(application: Application) {
-    const applications = this.getAllApplications();
+  async updateApplication(application: Application) {
+    const applications = await this.getAllApplications();
     for (let i = 0; i < applications.length; i++) {
       if (applications[i].id === application.id) {
         applications[i] = application;

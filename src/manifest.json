@@ -17,6 +17,7 @@
       "matches": ["<all_urls>"]
     }
   ],
+  "web_accessible_resources": ["data/*.json", "applications/*.json"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false

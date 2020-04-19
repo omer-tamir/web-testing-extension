@@ -15,15 +15,15 @@ export class ApplicationsListComponent implements OnInit {
     this.dataService.updateApplication(this.rightPanelApplication);
     console.log('changes save', $event);
   }
-  constructor(private router: Router, private dataService: DataService) {}
+  constructor(private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.rightPanelApplication = new Application();
     this.getApplicationsList();
   }
 
-  getApplicationsList() {
-    this.applicationList = this.dataService.getAllApplications();
+  async getApplicationsList() {
+    this.applicationList = await this.dataService.getAllApplications();
 
     if (this.applicationList[0] != null) {
       this.rightPanelApplication = this.applicationList[0];
@@ -48,7 +48,7 @@ export class ApplicationsListComponent implements OnInit {
       id: this.rightPanelApplication.id,
       defaultUrl: goTourl
     });
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.update(tabs[0].id, { url: goTourl });
     });
   }
