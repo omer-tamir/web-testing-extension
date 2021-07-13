@@ -7,34 +7,34 @@ import { InputType } from '../models/InputType';
 import { DefaultApp } from '../models/defaultApp';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataService {
-  constructor(private loggerService: LoggerService) { }
+  constructor(private loggerService: LoggerService) {}
 
   async fetchData(): Promise<Application[]> {
     const url = chrome.runtime.getURL('assets/data.json');
-
     const response = await fetch(url);
     const applications = response.json();
     return applications;
   }
 
   async getAllApplications(): Promise<Application[]> {
-
-    let applications = await this.fetchData() || [];
+    let applications = (await this.fetchData()) || [];
     if (applications.length === 0) {
       applications = this.SeedSampleApplication();
     }
     return applications;
   }
 
-  async getApplicationsLogiginsForDefaultApp(): Promise<Array<ApplicationLogin>> {
+  async getApplicationsLogiginsForDefaultApp(): Promise<
+    Array<ApplicationLogin>
+  > {
     const applications = await this.getAllApplications();
     const defaultAppId = this.getDefaultUrl().id;
     const applicationLogins: Array<ApplicationLogin> = [];
-    applications.forEach(application => {
-      application.applicationLogin.forEach(login => {
+    applications.forEach((application) => {
+      application.applicationLogin.forEach((login) => {
         if (defaultAppId === application.id) {
           applicationLogins.push(login);
         }

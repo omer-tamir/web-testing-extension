@@ -1,16 +1,64 @@
 {
-  "Applications": [
+  "applicationLogin": [
     {
-      "id": 1,
-      "name": "pepper",
-      "devUrl": "https://localhost:44320/",
-      "testUrl": "https://a000468-test.azurewebsites.net/",
-      "prodUrl": "https://godigital.loanservicenet.com.au/"
+      "useCase": "Walshaw",
+      "loginParams": [
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_Surname",
+          "controllerValue": "Walshaw"
+        },
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_DateOfBirth_Day",
+          "controllerValue": "24"
+        },
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_DateOfBirth_Month",
+          "controllerValue": "4"
+        },
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_DateOfBirth_Year",
+          "controllerValue": "1975"
+        },
+        {
+          "inputType": "UrlFregment",
+          "controllerNameOrId": "f",
+          "controllerValue": "EBB1FCA741D574AD0CC34487D550E1F0"
+        }
+      ]
     },
     {
-      "id": 5,
-      "name": "CSC",
-      "devUrl": "https://localhost:44390/"
+      "useCase": "McGachey",
+      "loginParams": [
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_Surname",
+          "controllerValue": "McGachey"
+        },
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_DateOfBirth_Day",
+          "controllerValue": "5"
+        },
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_DateOfBirth_Month",
+          "controllerValue": "2"
+        },
+        {
+          "inputType": "Id",
+          "controllerNameOrId": "LoginViewModel_DateOfBirth_Year",
+          "controllerValue": "1994"
+        },
+        {
+          "inputType": "UrlFregment",
+          "controllerNameOrId": "f",
+          "controllerValue": "7B6795A1A0B8CE97188271878FF95B69"
+        }
+      ]
     }
   ]
 }
